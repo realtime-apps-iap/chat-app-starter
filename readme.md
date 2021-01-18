@@ -34,14 +34,14 @@ In addition, in the users display and the chat messages we also want:
 
 ## Instructions
 
-This repository has the roughly following directory structure:
+This repository has roughly the following directory structure:
 
 ```
 simple-server
 |- node_modules
-|- public // contains the front-end code
-|- src // back-end code
-|---- app.js // entry point into the app
+|- public           // contains the front-end code
+|- src              // back-end code
+|---- app.js        // entry point into the app
 |---- package.json
 |---- readme.md
 |---- ...
