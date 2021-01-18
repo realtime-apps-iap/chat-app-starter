@@ -4,6 +4,7 @@
 This is the starter code for a group chat application built using node.js and websockets.
 
 The completed code can be found [here](https://github.com/realtime-apps-iap/chat-app)
+
 A live demo of the working app can be found [here](https://rtwa-iap-chat-app.herokuapp.com/)
 
 ## Objectives
@@ -28,6 +29,7 @@ when a user leaves the room (disconnection):
 
 In addition, in the users display and the chat messages we also want:
 
-- we want to display the user's origin country (which we find out by checking the IP addresses) alongside their username.
+- to display the user's origin country (which we find out by checking the IP addresses) alongside their username.
+- to update the number of active users currently in the chat
 
 
