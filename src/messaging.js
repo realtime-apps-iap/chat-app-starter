@@ -31,6 +31,25 @@ const bind = function (wss) {
         // -    Update all users with the list of currently active users
         // -    Have send the welcome message to all active users with admin-bot as the sender.
 
+        // ws.send(JSON.stringify({
+        //     type: "WELCOME",
+        //     time: timestamp,
+        //     receiver: user.visible,
+        // }));
+
+        // broadcast(null, JSON.stringify({
+        //     type: "UPDATE_STATE",
+        //     time: timestamp,
+        //     state: { users: Object.values(users).map(user => user.visible) },
+        // }));
+
+        // broadcast(null, JSON.stringify({
+        //     type: "ADMIN_MESSAGE",
+        //     time: timestamp,
+        //     text: `${username} has joined the chat!`,
+        // }))
+
+
         ws.on('message', async function (payload) {
             const timestamp = moment().unix();
 
@@ -38,6 +57,31 @@ const bind = function (wss) {
             // -    Check the message for profanity (hint: look at utils.js)
             // -    If there is no profanity, have admin bot notify the user that the message was not sent
             // -    Else, send the welcome message to all active users with the user as the sender.
+
+            // get the text from the json payload
+            // const text = 
+
+            // check for profanity using utils.containsProfanity(s)
+            // remember utils.containsProfanity(s) is an async function!
+            // const containsProfanity = 
+
+
+            // if there is profanity, we want to send an error message only to the user, example:
+            // ws.send(JSON.stringify({
+            //     type: "ERROR",
+            //     time: timestamp,
+            //     text: "", // what message should be sent?,
+            // }));
+
+
+            // if there is no profanity, we broadcast the message to all other users
+            // broadcast(null, s) sends the string s to all connected clients, example:
+            // broadcast(null, JSON.stringify({
+            //     type: "USER_MESSAGE",
+            //     time: timestamp,
+            //     sender: user.visible,
+            //     text: "", // what message should be sent?
+            // }))
 
         });
     });
@@ -61,18 +105,25 @@ const bind = function (wss) {
         // -    Have send the a message to all active users with admin-bot as the sender notifying the user has left the chat.
         // -    After this, proceed to STEP 4 in /public/js/index.js
 
+        // state should look like 
+        // {
+        //     users: [
+        //         { username: "someusername", country: "US" },
+        //         { username: "otherusername", country: "SG" },
+        //     ]
+        // }
 
-        broadcast(null, JSON.stringify({
-            type: "UPDATE_STATE",
-            time: timestamp,
-            state: { users: Object.values(users).map(user => user.visible) },
-        }))
+        // broadcast(null, JSON.stringify({
+        //     type: "UPDATE_STATE",
+        //     time: timestamp,
+        //     state: {}, // how do we get the state?
+        // }))
 
-        broadcast(null, JSON.stringify({
-            type: "ADMIN_MESSAGE",
-            time: timestamp,
-            text: `${user.username} has left the chat.`,
-        }))
+        // broadcast(null, JSON.stringify({
+        //     type: "ADMIN_MESSAGE",
+        //     time: timestamp,
+        //     text: "", // what message should be sent?
+        // }))
     });
 
 

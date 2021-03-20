@@ -64,3 +64,70 @@ You can install `nodemon` globalling using `npm install -g nodemon` or `yarn glo
 And then start the server using `nodemon app.js`
 
 
+## Message Schemas
+Here are the message schemas used in this application. It is important that we stick to these schemas as they are not enforced by WebSockets.
+
+### Client to Server Messages
+**Message from user**
+```json
+{ "text" : "sometext" }
+```
+
+### Server to Client Messages
+**Welcome message**
+This message is used by the server to tell the client about the client's assigned username and country
+```json
+{
+    "type": "WELCOME",
+    "timestamp" : 1616239800,
+    "receiver": {"username": "someuser", "country": "SG"}
+}
+```
+
+**Update state message**
+This message is used by the server to tell the client about the state of the chat room
+```json
+{
+    "type": "UPDATE_STATE",
+    "timestamp" : 1616239800,
+    "state": {
+        "users": [
+            {"username": "someuser", "country": "SG"},
+            {"username": "anotheruser", "country": "SG"},
+            {"username": "someotheruser", "country": "US"}
+        ]
+    }
+}
+```
+
+**Error message**
+This message is used by the server to tell the client something went wrong
+```json
+{
+    "type": "ERROR",
+    "timestamp" : 1616239800,
+    "message": "Something went wrong!"
+}
+```
+
+**Admin message**
+This message is used by the server to make announcements to the chatroom as an "admin-bot"
+```json
+{
+    "type": "ADMIN_MESSAGE",
+    "timestamp" : 1616239800,
+    "message": "A new user has joined the room!"
+}
+```
+
+**User message**
+This message is used by the server to tell the client that another client (user) has sent a message to the chat room
+```json
+{
+    "type": "USER_MESSAGE",
+    "timestamp" : 1616239800,
+    "message": "Everything I need is on the ground."
+}
+```
+
+

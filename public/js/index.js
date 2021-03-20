@@ -21,6 +21,40 @@ const messageHandler = function (e) {
 
     // the content of the message is in MessageEvent.data
     const msg = JSON.parse(e.data);
+
+    // if (msg.type == "WELCOME") {
+    //     myUser = msg.receiver;
+    // }
+
+    // if (msg.type == "UPDATE_STATE") {
+    //     const users = msg.state.users;
+    //     $('#user-count').html(users.length);
+    //     clearUsers();
+    //     users.forEach((user) => {
+    //         if (user.username == myUser.username) {
+    //             addUser({
+    //                 username: `${myUser.username} (you)`,
+    //                 country: myUser.country
+    //             });
+    //         }
+    //         else {
+    //             addUser(user);
+    //         }
+    //     })
+    // }
+
+    // if (msg.type == "ERROR" || msg.type == "ADMIN_MESSAGE") {
+    //     addAdminMessage(msg);
+    // }
+
+    // if (msg.type == "USER_MESSAGE") {
+    //     addUserMessage({
+    //         username: msg.sender.username,
+    //         country: msg.sender.country,
+    //         text: msg.text,
+    //         isUser: false,
+    //     });
+    // }
 };
 
 ws.addEventListener("message", messageHandler);
@@ -39,8 +73,13 @@ $('form').submit(function (e) {
 
 
     // STEP 5: send the message with the text value to the server
-
+    // ws.send(JSON.stringify({ text }));
 
     // STEP 6: display the message on the client side
-
+    // addUserMessage({
+    //     username: `${myUser.username} (you)`,
+    //     country: myUser.country,
+    //     text,
+    //     isUser: true,
+    // });
 })
