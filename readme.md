@@ -126,7 +126,11 @@ This message is used by the server to tell the client that another client (user)
 {
     "type": "USER_MESSAGE",
     "timestamp" : 1616239800,
-    "message": "Everything I need is on the ground."
+    "sender" :{
+        "username": "someuser",
+        "country": "SG",
+    },
+    "text": "Everything I need is on the ground."
 }
 ```
 
