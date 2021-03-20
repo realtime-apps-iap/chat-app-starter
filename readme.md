@@ -106,7 +106,7 @@ This message is used by the server to tell the client something went wrong
 {
     "type": "ERROR",
     "timestamp" : 1616239800,
-    "message": "Something went wrong!"
+    "text": "Something went wrong!"
 }
 ```
 
@@ -116,7 +116,7 @@ This message is used by the server to make announcements to the chatroom as an "
 {
     "type": "ADMIN_MESSAGE",
     "timestamp" : 1616239800,
-    "message": "A new user has joined the room!"
+    "text": "A new user has joined the room!"
 }
 ```
 
